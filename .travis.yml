@@ -11,3 +11,7 @@ before_install:
   - mysql -u root --default-character-set=utf8 travis < scripts/bd.sql
 script:
   - vendor/bin/phpunit
+  env :
+ - export DB=mysql
+  Disabling Gradle daemon :
+ -mkdir -p ~/.gradle && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
