@@ -2,7 +2,7 @@ language: php
 php:
   - 7.1.9
 before_script:
-    - travis_retry composer self-update
+  - curl -sSf -o ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
     
 
 script:
