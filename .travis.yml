@@ -13,5 +13,5 @@ script:
   - vendor/bin/phpunit
   env :
  - export DB=mysql
-  Disabling Gradle daemon :
- -mkdir -p ~/.gradle && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
+
+ 
