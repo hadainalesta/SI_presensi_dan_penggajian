@@ -10,3 +10,4 @@ env:
   install:
    - composer require symfony/framework-bundle:${SYMFONY_VERSION}
        script: phpunit --configuration $DB.phpunit.xml
+ 
