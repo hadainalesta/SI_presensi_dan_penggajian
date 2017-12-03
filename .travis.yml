@@ -1,17 +1,12 @@
 language: php
 php:
-  - '5.5'
-  - '5.6'
-service:
-  - mysql
-install:
-  - composer install
-before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS travis;'  
- 
-script:
-  - vendor/bin/phpunit
-  env :
- - export DB=mysql
-  Disabling Gradle daemon :
- -mkdir -p ~/.gradle && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
+  - 7.1.9
+  before_script: composer require atoum/atoum
+script: vendor/bin/atoum
+install: php vendor/vendors.php
+env:
+  - SYMFONY_VERSION="2.0.*" DB=mysql
+  - SYMFONY_VERSION="dev-master" DB=mysql
+  install:
+   - composer require symfony/framework-bundle:${SYMFONY_VERSION}
+       script: phpunit --configuration $DB.phpunit.xml
